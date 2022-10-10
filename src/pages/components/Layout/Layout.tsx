@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../Navbar";
+import Navbar from "./Navbar";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div className="max-w-screen-lg mx-auto px-4">
       <Navbar />
       {children}
     </div>

@@ -13,7 +13,7 @@ const Home: NextPage<{ animes: any[] }> = ({ animes }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {animes.map((anime) => (
           <AnimeCard key={anime.id} anime={anime} />
         ))}
@@ -25,9 +25,9 @@ const Home: NextPage<{ animes: any[] }> = ({ animes }) => {
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
-      query Query {
+      query {
         Page {
-          media {
+          media(sort: POPULARITY_DESC, type: ANIME) {
             id
             title {
               userPreferred
